@@ -1,3 +1,4 @@
+/* global confirm */
 // Tasks App JavaScript Module
 
 class TasksApp {
@@ -38,24 +39,36 @@ class TasksApp {
   bindEvents() {
     // Form submission
     this.elements.form.addEventListener('submit', this.handleSubmit.bind(this));
-    this.elements.cancelBtn.addEventListener('click', this.cancelEdit.bind(this));
-    
+    this.elements.cancelBtn.addEventListener(
+      'click',
+      this.cancelEdit.bind(this)
+    );
+
     // Theme toggle
-    this.elements.themeToggle.addEventListener('click', this.toggleTheme.bind(this));
-    
+    this.elements.themeToggle.addEventListener(
+      'click',
+      this.toggleTheme.bind(this)
+    );
+
     // Filter and sort
-    this.elements.filterButtons.forEach(btn => {
+    this.elements.filterButtons.forEach((btn) => {
       btn.addEventListener('click', this.handleFilter.bind(this));
     });
-    this.elements.sortSelect.addEventListener('change', this.handleSort.bind(this));
-    
+    this.elements.sortSelect.addEventListener(
+      'change',
+      this.handleSort.bind(this)
+    );
+
     // Error retry
-    this.elements.retryButton.addEventListener('click', this.loadTasks.bind(this));
+    this.elements.retryButton.addEventListener(
+      'click',
+      this.loadTasks.bind(this)
+    );
   }
 
   async handleSubmit(e) {
     e.preventDefault();
-    
+
     const title = this.elements.titleInput.value.trim();
     const notes = this.elements.notesInput.value.trim();
     const priority = this.elements.prioritySelect.value;
@@ -81,7 +94,7 @@ class TasksApp {
       } else {
         await this.createTask(taskData);
       }
-      
+
       this.clearForm();
       this.loadTasks();
     } catch (error) {
@@ -156,7 +169,7 @@ class TasksApp {
 
     try {
       const response = await fetch('/api/tasks');
-      
+
       if (!response.ok) {
         throw new Error('Failed to load tasks');
       }
@@ -170,7 +183,7 @@ class TasksApp {
 
   renderTasks() {
     this.hideAllSections();
-    
+
     const filteredTasks = this.filterTasks(this.tasks);
     const sortedTasks = this.sortTasks(filteredTasks);
 
@@ -180,8 +193,8 @@ class TasksApp {
     }
 
     this.elements.tasksList.innerHTML = '';
-    
-    sortedTasks.forEach(task => {
+
+    sortedTasks.forEach((task) => {
       const taskElement = this.createTaskElement(task);
       this.elements.tasksList.appendChild(taskElement);
     });
@@ -192,13 +205,14 @@ class TasksApp {
   createTaskElement(task) {
     const div = document.createElement('div');
     div.className = `task-item ${task.completed ? 'completed' : ''}`;
-    
-    const isOverdue = task.dueDate && new Date(task.dueDate) < new Date() && !task.completed;
+
+    const isOverdue =
+      task.dueDate && new Date(task.dueDate) < new Date() && !task.completed;
     if (isOverdue) {
       div.classList.add('overdue');
     }
 
-    const dueText = task.dueDate 
+    const dueText = task.dueDate
       ? this.formatDueDate(task.dueDate, isOverdue)
       : '';
 
@@ -236,13 +250,15 @@ class TasksApp {
   }
 
   handleEdit(id) {
-    const task = this.tasks.find(t => t.id === id);
+    const task = this.tasks.find((t) => t.id === id);
     if (!task) return;
 
     this.elements.titleInput.value = task.title;
     this.elements.notesInput.value = task.notes || '';
     this.elements.prioritySelect.value = task.priority;
-    this.elements.dueInput.value = task.dueDate ? task.dueDate.slice(0, 16) : '';
+    this.elements.dueInput.value = task.dueDate
+      ? task.dueDate.slice(0, 16)
+      : '';
 
     this.editingTaskId = id;
     this.elements.addBtn.textContent = 'Update Task';
@@ -278,11 +294,13 @@ class TasksApp {
 
   handleFilter(e) {
     // Remove active class from all buttons
-    this.elements.filterButtons.forEach(btn => btn.classList.remove('active'));
-    
+    this.elements.filterButtons.forEach((btn) =>
+      btn.classList.remove('active')
+    );
+
     // Add active class to clicked button
     e.target.classList.add('active');
-    
+
     this.currentFilter = e.target.dataset.filter;
     this.renderTasks();
   }
@@ -295,14 +313,15 @@ class TasksApp {
   filterTasks(tasks) {
     switch (this.currentFilter) {
       case 'completed':
-        return tasks.filter(task => task.completed);
+        return tasks.filter((task) => task.completed);
       case 'pending':
-        return tasks.filter(task => !task.completed);
+        return tasks.filter((task) => !task.completed);
       case 'overdue':
-        return tasks.filter(task => 
-          task.dueDate && 
-          new Date(task.dueDate) < new Date() && 
-          !task.completed
+        return tasks.filter(
+          (task) =>
+            task.dueDate &&
+            new Date(task.dueDate) < new Date() &&
+            !task.completed
         );
       default:
         return tasks;
@@ -317,9 +336,10 @@ class TasksApp {
           if (!a.dueDate) return 1;
           if (!b.dueDate) return -1;
           return new Date(a.dueDate) - new Date(b.dueDate);
-        case 'priority':
+        case 'priority': {
           const priorityOrder = { high: 3, medium: 2, low: 1 };
           return priorityOrder[b.priority] - priorityOrder[a.priority];
+        }
         case 'title':
           return a.title.localeCompare(b.title);
         default: // created
@@ -349,11 +369,13 @@ class TasksApp {
     });
 
     if (date.getHours() !== 0 || date.getMinutes() !== 0) {
-      formatted += ' ' + date.toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-      });
+      formatted +=
+        ' ' +
+        date.toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,
+        });
     }
 
     if (isOverdue) {
@@ -382,7 +404,9 @@ class TasksApp {
   // Theme management
   initTheme() {
     const savedTheme = localStorage.getItem('tasks-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
 
     if (savedTheme) {
       document.documentElement.setAttribute('data-theme', savedTheme);
@@ -403,8 +427,9 @@ class TasksApp {
   }
 
   updateThemeToggle() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    this.elements.themeToggle.textContent = isDark ? 'Light' : 'Dark';
+    const isDark =
+      document.documentElement.getAttribute('data-theme') === 'dark';
+    this.elements.themeToggle.textContent = isDark ? '☀️' : '🌙';
     this.elements.themeToggle.setAttribute(
       'aria-label',
       isDark ? 'Switch to light mode' : 'Switch to dark mode'
@@ -431,10 +456,7 @@ class TasksApp {
   }
 }
 
-// Global instance for event handlers
-let tasksApp;
-
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  tasksApp = new TasksApp();
+  new TasksApp();
 });
