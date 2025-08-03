@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/dunamismax/14kb-web">
-    <img src="https://readme-typing-svg.demolab.com/?font=Inter&weight=600&size=28&pause=1000&color=FCCD3C&center=true&vCenter=true&width=1200&height=90&lines=Ultra-Lightweight+Web+Development+Under+14KB;High-Performance+Fastify+API+%2B+SQLite+Database;Minimalist+Blog+with+Performance+Philosophy;Weather+App+with+OpenWeatherMap+Integration;Zero+Framework+Overhead+%26+Maximum+Speed;ES+Modules+%2B+Modern+Web+Standards;Production+Ready+with+esbuild+%26+Performance+Budget;TCP+Slow+Start+Optimized+Architecture;ESLint+%2B+Prettier+Code+Quality;Complete+Accessibility+with+Semantic+HTML;Lightning+Fast+14KB+Page+Loads;Open+Source+MIT+Licensed+Framework" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com/?font=Inter&weight=600&size=28&pause=1000&color=FCCD3C&center=true&vCenter=true&width=1200&height=90&lines=Ultra-Lightweight+Web+Development+Under+14KB;High-Performance+Fastify+API+%2B+SQLite+Database;Minimalist+Blog+with+Performance+Philosophy;Weather+App+with+OpenWeatherMap+Integration;Tasks+App+with+Scheduler+and+Notes;Zero+Framework+Overhead+%26+Maximum+Speed;Production+Ready+with+esbuild+%26+Performance+Budget;TCP+Slow+Start+Optimized+Architecture;Complete+Accessibility+with+Semantic+HTML;Lightning+Fast+14KB+Page+Loads;Open+Source+MIT+Licensed+Framework" alt="Typing SVG" />
   </a>
 </p>
 
@@ -99,16 +99,14 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 - **Monorepo architecture** with pnpm workspaces for efficient dependency management
 - **Code quality tools** with ESLint 9.32+ and Prettier for consistent, maintainable code
 - **Performance budget checking** with automated 14KB gzipped size validation
-- **Hot reload development** with file watching and instant browser updates
 - **Production deployment** ready with optimized builds and performance monitoring
-- **Modern JavaScript** targeting ES2022 with Node.js 22.18+ LTS support
 
-### Modern Web Standards
+### Modern Standards
 
 - **Semantic HTML5** with accessible markup and ARIA attributes
-- **Modern CSS features** including custom properties, grid, and flexbox layouts
-- **Progressive enhancement** starting with HTML, enhanced with CSS and JavaScript
-- **Web APIs** leveraging fetch, localStorage, and modern browser capabilities
+- **Modern CSS** with custom properties, grid, and flexbox layouts
+- **Progressive enhancement** from HTML to CSS to JavaScript
+- **Native Web APIs** including fetch, localStorage, and modern browser features
 
 ---
 
@@ -134,19 +132,9 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 
 ## Documentation
 
-**Application Categories:**
+**Guides:** [Performance](docs/PERFORMANCE.md) • [Architecture](docs/ARCHITECTURE.md) • [Deployment](docs/DEPLOYMENT.md)
 
-- **[Blog Application](apps/blog/README.md)** - Performance-focused blog with 14KB philosophy
-- **[Weather Application](apps/weather/README.md)** - Full-featured weather app under 14KB
-- **[Performance Guide](docs/PERFORMANCE.md)** - 14KB optimization strategies
-
-**Technical Guides:**
-
-- **[Architecture Overview](docs/ARCHITECTURE.md)** - TCP slow start and performance design
-- **[Deployment Guide](docs/DEPLOYMENT.md)** - Production setup with performance monitoring
-
-**External Resources:**
-[14KB Rule](https://mobilehtml5.org/) • [TCP Slow Start](https://developer.mozilla.org/en-US/docs/Glossary/TCP_slow_start) • [Fastify Docs](https://www.fastify.io/docs/) • [esbuild Guide](https://esbuild.github.io/)
+**Resources:** [14KB Rule](https://mobilehtml5.org/) • [TCP Slow Start](https://developer.mozilla.org/en-US/docs/Glossary/TCP_slow_start) • [Fastify Docs](https://www.fastify.io/docs/) • [esbuild Guide](https://esbuild.github.io/)
 
 ---
 
@@ -155,34 +143,31 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 **Prerequisites:** Node.js 22.18+ and pnpm 8+ installed
 
 ```bash
-# Clone repository and navigate
+# Clone and setup
 git clone https://github.com/dunamismax/14kb-web.git && cd 14kb-web
-
-# Install all dependencies
 pnpm install
 
-# Set up weather app environment
-cd apps/weather && cp .env.example .env
-# Add your OpenWeatherMap API key to .env
+# Configure weather app (optional)
+echo "OPENWEATHER_API_KEY=your_api_key_here" > apps/weather/.env
 
-# Start all development servers
+# Start all apps
 pnpm dev
 
-# Or start individual applications
+# Or run individual apps
 pnpm --filter blog dev        # Blog at localhost:3000
-pnpm --filter weather dev     # Weather at localhost:3001
+pnpm --filter weather dev     # Weather at localhost:3001  
+pnpm --filter tasks dev       # Tasks at localhost:3002
 
-# Check 14KB budget compliance
+# Build optimized production files
+pnpm build-all
+
+# Verify 14KB budget compliance
 pnpm check-size
-
-# Build everything for production
-pnpm build
 ```
 
 <div align="center">
 
-**Blog ready at** `http://localhost:3000`  
-**Weather App ready at** `http://localhost:3001`
+**Blog:** `http://localhost:3000` • **Weather:** `http://localhost:3001` • **Tasks:** `http://localhost:3002`
 
 <img src="https://img.shields.io/badge/Status-Under_14KB-58A448?style=for-the-badge&logoColor=white" alt="Under 14KB">
 <img src="https://img.shields.io/badge/Performance-TCP_Optimized-58A448?style=for-the-badge&logoColor=white" alt="TCP Optimized">
@@ -194,61 +179,37 @@ pnpm build
 ## Development & Build
 
 ```bash
-# Development workflow
+# Development
 pnpm dev                          # Start all dev servers
-pnpm lint                         # Run ESLint on all packages
-pnpm format                       # Format code with Prettier
-pnpm test                         # Run all tests
-pnpm check-size                   # Verify 14KB budget compliance
+pnpm lint                         # Run ESLint
+pnpm format                       # Format with Prettier
+pnpm check-size                   # Verify 14KB budget
 
-# Production builds
-pnpm build                        # Build all applications
-pnpm start                        # Start production servers
+# Production
+pnpm build-all                    # Build optimized deployments
+pnpm build                        # Build individual apps
 
-# Individual package commands
-pnpm --filter blog dev            # Blog development server
-pnpm --filter weather build       # Build weather app
-pnpm --filter blog check-size     # Check individual app size
+# Individual apps
+pnpm --filter blog dev            # Blog server only
+pnpm --filter tasks build         # Build tasks app only
 ```
-
-**Quality gates:** ESLint • Prettier • 14KB budget check • Build verification • Performance validation
 
 ---
 
 ## Deployment
 
-**Production deployment optimized for 14KB performance:**
-
-### Quick Deployment
-
 ```bash
-# 1. Build for production with size optimization
-NODE_ENV=production pnpm build
+# Generate production builds
+pnpm build-all
 
-# 2. Verify 14KB budget compliance
+# Verify performance
 pnpm check-size
 
-# 3. Setup production environment
-# Configure web server with gzip/brotli compression
-# Set appropriate cache headers for static assets
-# Monitor performance metrics
-
-# 4. Deploy static builds
-# Blog: serve apps/blog/dist/
-# Weather: serve apps/weather/dist/
+# Deploy from build/ directory
+# Each app has: index.html, index.html.gz, index.html.br
 ```
 
-### Deployment Architecture
-
-```
-Internet → CDN/Proxy (gzip/brotli) → Static Files (≤14KB)
-        ↓
-    Weather API (Fastify) → OpenWeatherMap
-        ↓
-    SQLite Database (caching)
-```
-
-**Infrastructure:** CDN with compression • Static file serving • Fastify API • Performance monitoring
+**Architecture:** CDN/Proxy → Static Files (≤14KB) → APIs (Weather/Tasks) → SQLite
 
 ---
 
@@ -289,7 +250,7 @@ Internet → CDN/Proxy (gzip/brotli) → Static Files (≤14KB)
 </tr>
 </table>
 
-**Architecture highlights:** 14KB budget • Zero frameworks • Modern JavaScript • Production ready • TCP optimized
+**Stack highlights:** 14KB budget • Zero frameworks • Modern JavaScript • Production ready • TCP optimized
 
 ## Philosophy
 
@@ -307,18 +268,16 @@ Internet → CDN/Proxy (gzip/brotli) → Static Files (≤14KB)
 - **Performance Budget** - Hard 14KB limit enforces disciplined, optimized development
 - **Modern Standards** - ES modules, CSS Grid, and native web APIs
 
-### Blog Topics Covered
+### Blog Topics
 
-Our blog explores the philosophy and techniques behind 14KB web development:
-
-- **Why 14KB Matters: The Science Behind Optimal Web Performance**
-- **The Vanilla JavaScript Renaissance: Building Without Frameworks**
-- **Modern CSS Without Frameworks: Grid, Flexbox, and Custom Properties**
-- **Network Optimization Strategies: Gzip, Caching, and TCP Slow Start**
-- **Fastify + SQLite: A Minimal Backend Stack for Maximum Performance**
-- **ESBuild: The Performance Champion of JavaScript Bundlers**
-- **Accessibility on a Budget: Semantic HTML and Progressive Enhancement**
-- **Performance Metrics That Matter: Beyond Lighthouse Scores**
+- Why 14KB Matters: TCP Slow Start Performance
+- Vanilla JavaScript Renaissance: Building Without Frameworks  
+- Modern CSS Without Frameworks: Grid, Flexbox, Custom Properties
+- Network Optimization: Gzip, Caching, TCP Strategies
+- Fastify + SQLite: Minimal Backend Stack
+- ESBuild: Performance Champion Bundler
+- Accessibility on a Budget: Semantic HTML
+- Performance Metrics That Matter
 
 ## Applications
 
