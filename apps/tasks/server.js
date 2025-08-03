@@ -3,7 +3,7 @@
 import Fastify from 'fastify';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 import vine from '@vinejs/vine';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
@@ -13,7 +13,7 @@ const fastify = Fastify({
 });
 
 // Initialize SQLite database
-const db = new Database(join(__dirname, 'tasks.db'));
+const db = new DatabaseSync(join(__dirname, 'tasks.db'));
 
 // Create tasks table if it doesn't exist
 db.exec(`
@@ -37,7 +37,7 @@ fastify.addHook('onSend', async (request, reply) => {
     'X-XSS-Protection': '1; mode=block',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Content-Security-Policy':
-      "default-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'",
+      "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'",
   });
 });
 

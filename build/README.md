@@ -2,7 +2,7 @@
 
 This directory contains production-ready, optimized builds of all applications in the 14KB Web monorepo.
 
-**Generated:** 2025-08-03T20:51:49.029Z
+**Generated:** 2025-08-03T21:03:17.026Z
 **Build Target:** 14KB gzipped per page
 
 ## Applications

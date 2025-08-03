@@ -11,12 +11,14 @@
     "packages/*"
   ],
   "scripts": {
+    "preinstall": "node scripts/check-node-version.js",
     "build": "pnpm -r run build",
     "dev": "pnpm -r run dev",
     "test": "pnpm -r run test",
     "lint": "pnpm -r run lint",
     "format": "pnpm -r run format",
     "check-size": "node scripts/check-size.js",
+    "check-node": "node scripts/check-node-version.js",
     "clean": "pnpm -r run clean && rm -rf node_modules",
     "build-all": "node scripts/build-all.js"
   },
@@ -29,7 +31,8 @@
     "prettier": "^3.6.2"
   },
   "engines": {
-    "node": ">=22.18.0",
+    "node": ">=22.18.0 <25.0.0",
     "pnpm": ">=8.0.0"
-  }
+  },
+  "engineStrict": true
 }

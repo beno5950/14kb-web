@@ -140,11 +140,20 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 
 ## Quick Start
 
-**Prerequisites:** Node.js 22.18+ and pnpm 8+ installed
+**Prerequisites:** Node.js 22.18.0-24.x and pnpm 8+ installed
 
 ```bash
 # Clone and setup
 git clone https://github.com/dunamismax/14kb-web.git && cd 14kb-web
+
+# Ensure correct Node.js version (22.18.0 recommended)
+node --version  # Should show v22.18.x
+# If using nvm: nvm use 22.18.0
+
+# Check Node.js compatibility
+pnpm check-node
+
+# Install dependencies
 pnpm install
 
 # Configure weather app (optional)
@@ -168,6 +177,8 @@ pnpm check-size
 <div align="center">
 
 **Blog:** `http://localhost:3000` • **Weather:** `http://localhost:3001` • **Tasks:** `http://localhost:3002`
+
+> **Note:** The Tasks app uses Node.js built-in SQLite (experimental) and may show warnings in Node.js 24+
 
 <img src="https://img.shields.io/badge/Status-Under_14KB-58A448?style=for-the-badge&logoColor=white" alt="Under 14KB">
 <img src="https://img.shields.io/badge/Performance-TCP_Optimized-58A448?style=for-the-badge&logoColor=white" alt="TCP Optimized">
