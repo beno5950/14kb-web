@@ -236,7 +236,7 @@ class WeatherApp {
   updateThemeToggle() {
     const isDark =
       document.documentElement.getAttribute('data-theme') === 'dark';
-    this.elements.themeToggle.textContent = isDark ? 'Light' : 'Dark';
+    this.elements.themeToggle.textContent = isDark ? '☀️' : '🌙';
     this.elements.themeToggle.setAttribute(
       'aria-label',
       isDark ? 'Switch to light mode' : 'Switch to dark mode'

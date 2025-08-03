@@ -14,7 +14,7 @@
     <header>
       <h1>14KB Tasks</h1>
       <nav>
-        <button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
       </nav>
     </header>
 
@@ -32,7 +32,7 @@
               maxlength="100"
             />
           </div>
-          
+
           <div class="input-group">
             <label for="task-notes">Notes (optional)</label>
             <textarea
@@ -56,16 +56,14 @@
 
             <div class="input-group">
               <label for="task-due">Due Date (optional)</label>
-              <input
-                type="datetime-local"
-                id="task-due"
-                name="dueDate"
-              />
+              <input type="datetime-local" id="task-due" name="dueDate" />
             </div>
           </div>
 
           <button type="submit" id="add-task-btn">Add Task</button>
-          <button type="button" id="cancel-edit-btn" style="display: none">Cancel Edit</button>
+          <button type="button" id="cancel-edit-btn" style="display: none">
+            Cancel Edit
+          </button>
         </form>
       </section>
 
@@ -76,7 +74,7 @@
           <button class="filter-btn" data-filter="completed">Completed</button>
           <button class="filter-btn" data-filter="overdue">Overdue</button>
         </div>
-        
+
         <div class="sort-controls">
           <label for="sort-select">Sort by:</label>
           <select id="sort-select">
@@ -116,9 +114,7 @@
       <p>
         &copy; 2024 14KB Tasks. Built with vanilla HTML, CSS, and JavaScript.
       </p>
-      <p>
-        Task data stored locally with SQLite database.
-      </p>
+      <p>Task data stored locally with SQLite database.</p>
     </footer>
 
     <script src="src/main.js" type="module"></script>
