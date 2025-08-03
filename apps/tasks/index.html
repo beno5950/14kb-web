@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14KB Tasks - Ultra-lightweight Task Manager</title>
+    <meta
+      name="description"
+      content="Manage tasks, reminders, and notes in under 14KB"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>14KB Tasks</h1>
+      <nav>
+        <button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="task-input">
+        <form id="task-form">
+          <div class="input-group">
+            <label for="task-title">Task Title</label>
+            <input
+              type="text"
+              id="task-title"
+              name="title"
+              placeholder="Enter task title..."
+              required
+              maxlength="100"
+            />
+          </div>
+          
+          <div class="input-group">
+            <label for="task-notes">Notes (optional)</label>
+            <textarea
+              id="task-notes"
+              name="notes"
+              placeholder="Add notes or details..."
+              maxlength="500"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority" name="priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="task-due">Due Date (optional)</label>
+              <input
+                type="datetime-local"
+                id="task-due"
+                name="dueDate"
+              />
+            </div>
+          </div>
+
+          <button type="submit" id="add-task-btn">Add Task</button>
+          <button type="button" id="cancel-edit-btn" style="display: none">Cancel Edit</button>
+        </form>
+      </section>
+
+      <section class="task-filters">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn" data-filter="overdue">Overdue</button>
+        </div>
+        
+        <div class="sort-controls">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="created">Created Date</option>
+            <option value="due">Due Date</option>
+            <option value="priority">Priority</option>
+            <option value="title">Title</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="tasks-display" class="tasks-display">
+        <div id="tasks-list" class="tasks-list"></div>
+        <div id="empty-state" class="empty-state" style="display: none">
+          <h3>No tasks yet</h3>
+          <p>Add your first task above to get started!</p>
+        </div>
+      </section>
+
+      <section id="loading" class="loading" style="display: none">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading tasks...</p>
+        </div>
+      </section>
+
+      <section id="error-display" class="error-display" style="display: none">
+        <div class="error-card">
+          <h3>Error</h3>
+          <p id="error-message"></p>
+          <button id="retry-button">Try Again</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2024 14KB Tasks. Built with vanilla HTML, CSS, and JavaScript.
+      </p>
+      <p>
+        Task data stored locally with SQLite database.
+      </p>
+    </footer>
+
+    <script src="src/main.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14KB Tasks - Ultra-lightweight Task Manager</title>
+    <meta
+      name="description"
+      content="Manage tasks, reminders, and notes in under 14KB"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>14KB Tasks</h1>
+      <nav>
+        <button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="task-input">
+        <form id="task-form">
+          <div class="input-group">
+            <label for="task-title">Task Title</label>
+            <input
+              type="text"
+              id="task-title"
+              name="title"
+              placeholder="Enter task title..."
+              required
+              maxlength="100"
+            />
+          </div>
+          
+          <div class="input-group">
+            <label for="task-notes">Notes (optional)</label>
+            <textarea
+              id="task-notes"
+              name="notes"
+              placeholder="Add notes or details..."
+              maxlength="500"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority" name="priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="task-due">Due Date (optional)</label>
+              <input
+                type="datetime-local"
+                id="task-due"
+                name="dueDate"
+              />
+            </div>
+          </div>
+
+          <button type="submit" id="add-task-btn">Add Task</button>
+          <button type="button" id="cancel-edit-btn" style="display: none">Cancel Edit</button>
+        </form>
+      </section>
+
+      <section class="task-filters">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn" data-filter="overdue">Overdue</button>
+        </div>
+        
+        <div class="sort-controls">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="created">Created Date</option>
+            <option value="due">Due Date</option>
+            <option value="priority">Priority</option>
+            <option value="title">Title</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="tasks-display" class="tasks-display">
+        <div id="tasks-list" class="tasks-list"></div>
+        <div id="empty-state" class="empty-state" style="display: none">
+          <h3>No tasks yet</h3>
+          <p>Add your first task above to get started!</p>
+        </div>
+      </section>
+
+      <section id="loading" class="loading" style="display: none">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading tasks...</p>
+        </div>
+      </section>
+
+      <section id="error-display" class="error-display" style="display: none">
+        <div class="error-card">
+          <h3>Error</h3>
+          <p id="error-message"></p>
+          <button id="retry-button">Try Again</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2024 14KB Tasks. Built with vanilla HTML, CSS, and JavaScript.
+      </p>
+      <p>
+        Task data stored locally with SQLite database.
+      </p>
+    </footer>
+
+    <script type="module">var o=class{constructor(){this.elements={form:document.getElementById("task-form"),titleInput:document.getElementById("task-title"),notesInput:document.getElementById("task-notes"),prioritySelect:document.getElementById("task-priority"),dueInput:document.getElementById("task-due"),addBtn:document.getElementById("add-task-btn"),cancelBtn:document.getElementById("cancel-edit-btn"),tasksList:document.getElementById("tasks-list"),emptyState:document.getElementById("empty-state"),loading:document.getElementById("loading"),errorDisplay:document.getElementById("error-display"),errorMessage:document.getElementById("error-message"),retryButton:document.getElementById("retry-button"),themeToggle:document.getElementById("theme-toggle"),sortSelect:document.getElementById("sort-select"),filterButtons:document.querySelectorAll(".filter-btn")},this.currentFilter="all",this.currentSort="created",this.editingTaskId=null,this.tasks=[],this.init()}init(){this.bindEvents(),this.initTheme(),this.loadTasks()}bindEvents(){this.elements.form.addEventListener("submit",this.handleSubmit.bind(this)),this.elements.cancelBtn.addEventListener("click",this.cancelEdit.bind(this)),this.elements.themeToggle.addEventListener("click",this.toggleTheme.bind(this)),this.elements.filterButtons.forEach(e=>{e.addEventListener("click",this.handleFilter.bind(this))}),this.elements.sortSelect.addEventListener("change",this.handleSort.bind(this)),this.elements.retryButton.addEventListener("click",this.loadTasks.bind(this))}async handleSubmit(e){e.preventDefault();let t=this.elements.titleInput.value.trim(),s=this.elements.notesInput.value.trim(),n=this.elements.prioritySelect.value,r=this.elements.dueInput.value;if(!t){this.showError("Task title is required");return}let i={title:t,notes:s,priority:n,dueDate:r||null,completed:!1,createdAt:new Date().toISOString()};try{this.editingTaskId?await this.updateTask(this.editingTaskId,i):await this.createTask(i),this.clearForm(),this.loadTasks()}catch(a){this.showError(a.message)}}async createTask(e){let t=await fetch("/api/tasks",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)});if(!t.ok){let s=await t.json();throw new Error(s.message||"Failed to create task")}return t.json()}async updateTask(e,t){let s=await fetch(`/api/tasks/${e}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)});if(!s.ok){let n=await s.json();throw new Error(n.message||"Failed to update task")}return s.json()}async deleteTask(e){let t=await fetch(`/api/tasks/${e}`,{method:"DELETE"});if(!t.ok){let s=await t.json();throw new Error(s.message||"Failed to delete task")}}async toggleTaskComplete(e,t){let s=await fetch(`/api/tasks/${e}/complete`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({completed:t})});if(!s.ok){let n=await s.json();throw new Error(n.message||"Failed to update task")}return s.json()}async loadTasks(){this.showLoading();try{let e=await fetch("/api/tasks");if(!e.ok)throw new Error("Failed to load tasks");this.tasks=await e.json(),this.renderTasks()}catch(e){this.showError(e.message)}}renderTasks(){this.hideAllSections();let e=this.filterTasks(this.tasks),t=this.sortTasks(e);if(t.length===0){this.elements.emptyState.style.display="block";return}this.elements.tasksList.innerHTML="",t.forEach(s=>{let n=this.createTaskElement(s);this.elements.tasksList.appendChild(n)}),document.getElementById("tasks-display").style.display="block"}createTaskElement(e){let t=document.createElement("div");t.className=`task-item ${e.completed?"completed":""}`;let s=e.dueDate&&new Date(e.dueDate)<new Date&&!e.completed;s&&t.classList.add("overdue");let n=e.dueDate?this.formatDueDate(e.dueDate,s):"";return t.innerHTML=`
+      <div class="task-header">
+        <div>
+          <div class="task-title ${e.completed?"completed":""}">${this.escapeHtml(e.title)}</div>
+          <span class="task-priority ${e.priority}">${e.priority}</span>
+        </div>
+      </div>
+      ${e.notes?`<div class="task-notes">${this.escapeHtml(e.notes)}</div>`:""}
+      <div class="task-meta">
+        <div class="task-created">Created: ${this.formatDate(e.createdAt)}</div>
+        ${n?`<div class="task-due ${s?"overdue":""}">Due: ${n}</div>`:""}
+        <div class="task-actions">
+          <button class="btn-complete" onclick="tasksApp.handleToggleComplete(${e.id}, ${!e.completed})">
+            ${e.completed?"Undo":"Complete"}
+          </button>
+          <button class="btn-edit" onclick="tasksApp.handleEdit(${e.id})">Edit</button>
+          <button class="btn-delete" onclick="tasksApp.handleDelete(${e.id})">Delete</button>
+        </div>
+      </div>
+    `,t}async handleToggleComplete(e,t){try{await this.toggleTaskComplete(e,t),this.loadTasks()}catch(s){this.showError(s.message)}}handleEdit(e){let t=this.tasks.find(s=>s.id===e);t&&(this.elements.titleInput.value=t.title,this.elements.notesInput.value=t.notes||"",this.elements.prioritySelect.value=t.priority,this.elements.dueInput.value=t.dueDate?t.dueDate.slice(0,16):"",this.editingTaskId=e,this.elements.addBtn.textContent="Update Task",this.elements.cancelBtn.style.display="inline-block",window.scrollTo({top:0,behavior:"smooth"}))}async handleDelete(e){if(confirm("Are you sure you want to delete this task?"))try{await this.deleteTask(e),this.loadTasks()}catch(t){this.showError(t.message)}}cancelEdit(){this.clearForm()}clearForm(){this.elements.form.reset(),this.editingTaskId=null,this.elements.addBtn.textContent="Add Task",this.elements.cancelBtn.style.display="none"}handleFilter(e){this.elements.filterButtons.forEach(t=>t.classList.remove("active")),e.target.classList.add("active"),this.currentFilter=e.target.dataset.filter,this.renderTasks()}handleSort(e){this.currentSort=e.target.value,this.renderTasks()}filterTasks(e){switch(this.currentFilter){case"completed":return e.filter(t=>t.completed);case"pending":return e.filter(t=>!t.completed);case"overdue":return e.filter(t=>t.dueDate&&new Date(t.dueDate)<new Date&&!t.completed);default:return e}}sortTasks(e){return[...e].sort((t,s)=>{switch(this.currentSort){case"due":return!t.dueDate&&!s.dueDate?0:t.dueDate?s.dueDate?new Date(t.dueDate)-new Date(s.dueDate):-1:1;case"priority":let n={high:3,medium:2,low:1};return n[s.priority]-n[t.priority];case"title":return t.title.localeCompare(s.title);default:return new Date(s.createdAt)-new Date(t.createdAt)}})}formatDate(e){return new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"})}formatDueDate(e,t){let s=new Date(e),r=s-new Date,i=Math.ceil(r/(1e3*60*60*24)),a=s.toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});if((s.getHours()!==0||s.getMinutes()!==0)&&(a+=" "+s.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",hour12:!0})),t){let l=Math.abs(i);a+=` (${l} day${l!==1?"s":""} overdue)`}else i===0?a+=" (Today)":i===1?a+=" (Tomorrow)":i>0&&i<=7&&(a+=` (${i} day${i!==1?"s":""})`);return a}escapeHtml(e){return e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}initTheme(){let e=localStorage.getItem("tasks-theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;e?document.documentElement.setAttribute("data-theme",e):t&&document.documentElement.setAttribute("data-theme","dark"),this.updateThemeToggle()}toggleTheme(){let t=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",t),localStorage.setItem("tasks-theme",t),this.updateThemeToggle()}updateThemeToggle(){let e=document.documentElement.getAttribute("data-theme")==="dark";this.elements.themeToggle.textContent=e?"Light":"Dark",this.elements.themeToggle.setAttribute("aria-label",e?"Switch to light mode":"Switch to dark mode")}showLoading(){this.hideAllSections(),this.elements.loading.style.display="block"}showError(e){this.hideAllSections(),this.elements.errorMessage.textContent=e,this.elements.errorDisplay.style.display="block"}hideAllSections(){this.elements.emptyState.style.display="none",this.elements.loading.style.display="none",this.elements.errorDisplay.style.display="none",document.getElementById("tasks-display").style.display="none"}},d;document.addEventListener("DOMContentLoaded",()=>{d=new o});
+</script>
+  </body>
+</html>

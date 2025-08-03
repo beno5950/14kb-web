@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 import { build } from 'esbuild';
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
+import { gzipSize } from 'gzip-size';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
@@ -40,16 +41,21 @@ const js = readFileSync('dist/main.js', 'utf8');
 
 // Create optimized HTML with inlined critical CSS and JS
 const optimizedHtml = html
-  .replace('<link rel="stylesheet" href="src/styles.css">', `<style>${css}</style>`)
-  .replace('<script src="src/main.js" type="module"></script>', `<script type="module">${js}</script>`);
+  .replace(
+    '<link rel="stylesheet" href="src/styles.css">',
+    `<style>${css}</style>`
+  )
+  .replace(
+    '<script src="src/main.js" type="module"></script>',
+    `<script type="module">${js}</script>`
+  );
 
 writeFileSync('dist/index.html', optimizedHtml);
 
-console.log('Blog build complete');
+console.log('Tasks app build complete');
 console.log('Output: dist/index.html');
 
 // Calculate gzipped size
-import { gzipSize } from 'gzip-size';
 const size = await gzipSize(optimizedHtml);
 const sizeKB = (size / 1024).toFixed(2);
 

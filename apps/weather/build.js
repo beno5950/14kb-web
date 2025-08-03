@@ -10,23 +10,28 @@ const __dirname = dirname(new URL(import.meta.url).pathname);
 // Ensure dist directory exists
 mkdirSync(join(__dirname, 'dist'), { recursive: true });
 
-// Build JavaScript
+// Build JavaScript with optimized settings
 await build({
   entryPoints: ['src/main.js'],
   bundle: true,
   minify: true,
   format: 'esm',
   outfile: 'dist/main.js',
-  target: 'es2020',
+  target: 'es2022', // Updated for Node.js 22
+  treeShaking: true,
+  mangleProps: /^_/,
+  drop: ['console', 'debugger'],
+  legalComments: 'none',
 });
 
-// Build CSS
+// Build CSS with optimization
 await build({
   entryPoints: ['src/styles.css'],
   bundle: true,
   minify: true,
   outfile: 'dist/styles.css',
   loader: { '.css': 'css' },
+  legalComments: 'none',
 });
 
 // Process HTML and inline critical resources
@@ -36,23 +41,29 @@ const js = readFileSync('dist/main.js', 'utf8');
 
 // Create optimized HTML with inlined critical CSS and JS
 const optimizedHtml = html
-  .replace('<link rel="stylesheet" href="src/styles.css">', `<style>${css}</style>`)
-  .replace('<script src="src/main.js" type="module"></script>', `<script type="module">${js}</script>`);
+  .replace(
+    '<link rel="stylesheet" href="src/styles.css">',
+    `<style>${css}</style>`
+  )
+  .replace(
+    '<script src="src/main.js" type="module"></script>',
+    `<script type="module">${js}</script>`
+  );
 
 writeFileSync('dist/index.html', optimizedHtml);
 
-console.log('✅ Weather app build complete');
-console.log('📦 Output: dist/index.html');
+console.log('Weather app build complete');
+console.log('Output: dist/index.html');
 
 // Calculate gzipped size
 const size = await gzipSize(optimizedHtml);
 const sizeKB = (size / 1024).toFixed(2);
 
-console.log(`📏 Gzipped size: ${sizeKB}KB`);
+console.log(`Gzipped size: ${sizeKB}KB`);
 
 if (size > 14 * 1024) {
-  console.log('⚠️  Warning: Exceeds 14KB budget');
+  console.log('Warning: Exceeds 14KB budget');
   process.exit(1);
 } else {
-  console.log('🎉 Within 14KB budget!');
+  console.log('Within 14KB budget!');
 }

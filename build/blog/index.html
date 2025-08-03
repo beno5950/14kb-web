@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14KB Blog - Lightweight Web Development</title>
+  <meta name="description" content="A blog about building ultra-fast websites under 14KB per page">
+  <style>*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}:root{--color-bg: #fff;--color-text: #333;--color-text-muted: #666;--color-accent: #06c;--color-accent-hover: #0529;--color-border: #e0e0e0;--font-system: system-ui, sans-serif;--font-mono: ui-monospace, monospace;--spacing-xs: .5rem;--spacing-sm: 1rem;--spacing-md: 1.5rem;--spacing-lg: 2rem;--spacing-xl: 3rem}@media (prefers-color-scheme: dark){:root{--color-bg: #1a1a1a;--color-text: #e0e0e0;--color-text-muted: #a0a0a0;--color-accent: #4da6ff;--color-accent-hover: #66b3ff;--color-border: #333333}}html{font-family:var(--font-system);line-height:1.6;color:var(--color-text);background-color:var(--color-bg)}body{max-width:800px;margin:0 auto;padding:var(--spacing-sm)}h1,h2,h3{line-height:1.2;margin-bottom:var(--spacing-sm)}h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.25rem}p{margin-bottom:var(--spacing-sm)}a{color:var(--color-accent);text-decoration:none}a:hover{color:var(--color-accent-hover);text-decoration:underline}header{border-bottom:1px solid var(--color-border);margin-bottom:var(--spacing-lg);padding-bottom:var(--spacing-md)}header h1 a{color:var(--color-text);font-weight:700}header p{color:var(--color-text-muted);margin:0}.hero{text-align:center;margin-bottom:var(--spacing-xl)}.hero h2{font-size:2.5rem;margin-bottom:var(--spacing-sm)}.hero p{font-size:1.125rem;color:var(--color-text-muted)}.posts{display:grid;gap:var(--spacing-lg)}.post-preview{border-bottom:1px solid var(--color-border);padding-bottom:var(--spacing-md)}.post-preview:last-child{border-bottom:none}.post-preview time{font-family:var(--font-mono);font-size:.875rem;color:var(--color-text-muted);display:block;margin-bottom:var(--spacing-xs)}.post-preview h3{margin-bottom:var(--spacing-xs)}.post-preview p{color:var(--color-text-muted);margin:0}footer{margin-top:var(--spacing-xl);padding-top:var(--spacing-md);border-top:1px solid var(--color-border);text-align:center;color:var(--color-text-muted);font-size:.875rem}@media (max-width: 600px){body{padding:var(--spacing-xs)}.hero h2{font-size:2rem}.hero p{font-size:1rem}}
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1><a href="/">14KB Blog</a></h1>
+      <p>Ultra-lightweight web development</p>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Building the Web, 14KB at a Time</h2>
+      <p>Discover how to create lightning-fast websites without sacrificing functionality.</p>
+    </section>
+
+    <section class="posts">
+      <article class="post-preview">
+        <time>2024-01-08</time>
+        <h3><a href="/posts/why-14kb-matters">Why 14KB Matters: The Science Behind Optimal Web Performance</a></h3>
+        <p>Understanding TCP slow start and why the first 14KB determines your site's fate.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-07</time>
+        <h3><a href="/posts/vanilla-js-renaissance">The Vanilla JavaScript Renaissance: Building Without Frameworks</a></h3>
+        <p>Modern JavaScript is powerful enough - here's how to harness it without the bloat.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-06</time>
+        <h3><a href="/posts/css-without-frameworks">Modern CSS Without Frameworks: Grid, Flexbox, and Custom Properties</a></h3>
+        <p>Create beautiful, responsive layouts using only what browsers provide.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-05</time>
+        <h3><a href="/posts/network-optimization-strategies">Network Optimization Strategies: Gzip, Caching, and TCP Slow Start</a></h3>
+        <p>Deep dive into network-level optimizations that make the biggest impact.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-04</time>
+        <h3><a href="/posts/fastify-sqlite-minimal-stack">Fastify + SQLite: A Minimal Backend Stack for Maximum Performance</a></h3>
+        <p>Why this lightweight combination beats heavy frameworks for most use cases.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-03</time>
+        <h3><a href="/posts/esbuild-performance-champion">ESBuild: The Performance Champion of JavaScript Bundlers</a></h3>
+        <p>How ESBuild's Go-powered speed revolutionizes build times.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-02</time>
+        <h3><a href="/posts/accessibility-on-a-budget">Accessibility on a Budget: Semantic HTML and Progressive Enhancement</a></h3>
+        <p>Building inclusive experiences without adding bulk to your pages.</p>
+      </article>
+
+      <article class="post-preview">
+        <time>2024-01-01</time>
+        <h3><a href="/posts/performance-metrics-that-matter">Performance Metrics That Matter: Beyond Lighthouse Scores</a></h3>
+        <p>Real-world performance metrics that correlate with user satisfaction.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 14KB Blog. Built with vanilla HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script type="module">document.addEventListener("DOMContentLoaded",()=>{"performance"in window&&window.addEventListener("load",()=>{let e=performance.timing,n=e.loadEventEnd-e.navigationStart;location.hostname}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",n=>{n.preventDefault();let t=document.querySelector(e.getAttribute("href"));t&&t.scrollIntoView({behavior:"smooth"})})}),document.querySelectorAll(".post-preview p").forEach(e=>{let n=e.textContent.split(" ").length,t=Math.ceil(n/200);if(t>1){let o=document.createElement("span");o.textContent=` \u2022 ${t} min read`,o.className="reading-time",o.style.color="var(--color-text-muted)",o.style.fontSize="0.875rem",e.appendChild(o)}})});
+</script>
+</body>
+</html>

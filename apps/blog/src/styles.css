@@ -9,15 +9,15 @@
 
 /* CSS Custom Properties */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #333333;
-  --color-text-muted: #666666;
-  --color-accent: #0066cc;
-  --color-accent-hover: #0052a3;
+  --color-bg: #fff;
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-accent: #06c;
+  --color-accent-hover: #0529;
   --color-border: #e0e0e0;
-  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
-  --spacing-xs: 0.5rem;
+  --font-system: system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --spacing-xs: .5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;

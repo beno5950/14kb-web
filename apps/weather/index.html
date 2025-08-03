@@ -1,114 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>14KB Weather - Ultra-lightweight Weather App</title>
-  <meta name="description" content="Get detailed weather reports in under 14KB">
-  <link rel="stylesheet" href="src/styles.css">
-</head>
-<body>
-  <header>
-    <h1>14KB Weather</h1>
-    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14KB Weather - Ultra-lightweight Weather App</title>
+    <meta
+      name="description"
+      content="Get detailed weather reports in under 14KB"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>14KB Weather</h1>
+      <button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+    </header>
 
-  <main>
-    <section class="search">
-      <form id="weather-form">
-        <label for="zipcode">Enter ZIP Code</label>
-        <div class="input-group">
-          <input 
-            type="text" 
-            id="zipcode" 
-            name="zipcode" 
-            placeholder="12345" 
-            pattern="[0-9]{5}" 
-            maxlength="5"
-            required
-            autocomplete="postal-code"
-          >
-          <button type="submit">Get Weather</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="weather-display" class="weather-display" style="display: none;">
-      <div class="weather-card">
-        <div class="weather-header">
-          <h2 id="location-name"></h2>
-          <div class="weather-icon">
-            <span id="weather-emoji" role="img"></span>
+    <main>
+      <section class="search">
+        <form id="weather-form">
+          <label for="zipcode">Enter ZIP Code</label>
+          <div class="input-group">
+            <input
+              type="text"
+              id="zipcode"
+              name="zipcode"
+              placeholder="12345"
+              pattern="[0-9]{5}"
+              maxlength="5"
+              required
+              autocomplete="postal-code"
+            />
+            <button type="submit">Get Weather</button>
           </div>
-        </div>
-        
-        <div class="weather-main">
-          <div class="temperature">
-            <span id="temp-current"></span>
-            <div class="temp-range">
-              <span id="temp-high"></span> / <span id="temp-low"></span>
+        </form>
+      </section>
+
+      <section
+        id="weather-display"
+        class="weather-display"
+        style="display: none"
+      >
+        <div class="weather-card">
+          <div class="weather-header">
+            <h2 id="location-name"></h2>
+            <div class="weather-icon">
+              <span id="weather-emoji" role="img"></span>
             </div>
           </div>
-          
-          <div class="weather-details">
-            <p id="weather-description"></p>
-            <p>Feels like <span id="feels-like"></span></p>
+
+          <div class="weather-main">
+            <div class="temperature">
+              <span id="temp-current"></span>
+              <div class="temp-range">
+                <span id="temp-high"></span> / <span id="temp-low"></span>
+              </div>
+            </div>
+
+            <div class="weather-details">
+              <p id="weather-description"></p>
+              <p>Feels like <span id="feels-like"></span></p>
+            </div>
+          </div>
+
+          <div class="weather-stats">
+            <div class="stat">
+              <span class="stat-label">Humidity</span>
+              <span class="stat-value" id="humidity"></span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Wind</span>
+              <span class="stat-value" id="wind"></span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Pressure</span>
+              <span class="stat-value" id="pressure"></span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Visibility</span>
+              <span class="stat-value" id="visibility"></span>
+            </div>
+          </div>
+
+          <div class="weather-sun">
+            <div class="sun-time">
+              <span>Sunrise</span>
+              <span id="sunrise"></span>
+            </div>
+            <div class="sun-time">
+              <span>Sunset</span>
+              <span id="sunset"></span>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="weather-stats">
-          <div class="stat">
-            <span class="stat-label">Humidity</span>
-            <span class="stat-value" id="humidity"></span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Wind</span>
-            <span class="stat-value" id="wind"></span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Pressure</span>
-            <span class="stat-value" id="pressure"></span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Visibility</span>
-            <span class="stat-value" id="visibility"></span>
-          </div>
+      <section id="error-display" class="error-display" style="display: none">
+        <div class="error-card">
+          <h3>Warning: Weather Unavailable</h3>
+          <p id="error-message"></p>
+          <button id="retry-button">Try Again</button>
         </div>
+      </section>
 
-        <div class="weather-sun">
-          <div class="sun-time">
-            <span>🌅</span>
-            <span id="sunrise"></span>
-          </div>
-          <div class="sun-time">
-            <span>🌇</span>
-            <span id="sunset"></span>
-          </div>
+      <section id="loading" class="loading" style="display: none">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Fetching weather data...</p>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section id="error-display" class="error-display" style="display: none;">
-      <div class="error-card">
-        <h3>⚠️ Weather Unavailable</h3>
-        <p id="error-message"></p>
-        <button id="retry-button">Try Again</button>
-      </div>
-    </section>
+    <footer>
+      <p>
+        Weather data provided by
+        <a href="https://openweathermap.org" target="_blank" rel="noopener"
+          >OpenWeatherMap</a
+        >
+      </p>
+      <p>
+        &copy; 2024 14KB Weather. Built with vanilla HTML, CSS, and JavaScript.
+      </p>
+    </footer>
 
-    <section id="loading" class="loading" style="display: none;">
-      <div class="loading-spinner">
-        <div class="spinner"></div>
-        <p>Fetching weather data...</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Weather data provided by <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeatherMap</a></p>
-    <p>&copy; 2024 14KB Weather. Built with vanilla HTML, CSS, and JavaScript.</p>
-  </footer>
-
-  <script src="src/main.js" type="module"></script>
-</body>
+    <script src="src/main.js" type="module"></script>
+  </body>
 </html>

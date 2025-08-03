@@ -47,7 +47,7 @@ async function checkPageSize(htmlFile) {
 }
 
 async function main() {
-  console.log('🔍 Checking 14KB budget for all HTML pages...\n');
+  console.log('Checking 14KB budget for all HTML pages...\n');
   
   const htmlFiles = [];
   
@@ -66,7 +66,7 @@ async function main() {
   }
   
   if (htmlFiles.length === 0) {
-    console.log('⚠️  No HTML files found in build directories');
+    console.log('Warning: No HTML files found in build directories');
     console.log('Run `pnpm build` first to generate built files');
     return;
   }
@@ -77,7 +77,7 @@ async function main() {
   let allWithinBudget = true;
   
   for (const result of validResults) {
-    const status = result.withinBudget ? '✅' : '❌';
+    const status = result.withinBudget ? 'PASS' : 'FAIL';
     const sizeKB = (result.size / 1024).toFixed(2);
     
     console.log(`${status} ${result.file}: ${sizeKB}KB (gzipped)`);
@@ -85,18 +85,18 @@ async function main() {
     if (!result.withinBudget) {
       allWithinBudget = false;
       const overageKB = ((result.size - MAX_SIZE) / 1024).toFixed(2);
-      console.log(`   ⚠️  Over budget by ${overageKB}KB`);
+      console.log(`   Warning: Over budget by ${overageKB}KB`);
     }
   }
   
-  console.log(`\n📊 Summary: ${validResults.length} pages checked`);
-  console.log(`📦 Budget: ${MAX_SIZE / 1024}KB (gzipped) per page`);
+  console.log(`\nSummary: ${validResults.length} pages checked`);
+  console.log(`Budget: ${MAX_SIZE / 1024}KB (gzipped) per page`);
   
   if (allWithinBudget) {
-    console.log('🎉 All pages are within the 14KB budget!');
+    console.log('Success: All pages are within the 14KB budget!');
     process.exit(0);
   } else {
-    console.log('💥 Some pages exceed the 14KB budget');
+    console.log('Error: Some pages exceed the 14KB budget');
     process.exit(1);
   }
 }

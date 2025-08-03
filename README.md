@@ -37,8 +37,9 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 <p align="center">
   <strong>Blog:</strong> <code>http://localhost:3000</code><br>
   <strong>Weather App:</strong> <code>http://localhost:3001</code><br>
+  <strong>Tasks App:</strong> <code>http://localhost:3002</code><br>
   <strong>Size Check:</strong> <code>pnpm check-size</code><br>
-  <strong>Build All:</strong> <code>pnpm build</code>
+  <strong>Build All:</strong> <code>pnpm build-all</code>
 </p>
 </div>
 </details>
@@ -46,15 +47,15 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 ---
 
 <p align="center">
-  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-18+-58A448.svg?logo=nodedotjs&logoColor=white&style=for-the-badge" alt="Node.js Version"></a>
-  <a href="https://www.fastify.io/"><img src="https://img.shields.io/badge/Fastify-4.26+-58A448.svg?logo=fastify&logoColor=white&style=for-the-badge" alt="Fastify Version"></a>
-  <a href="https://esbuild.github.io/"><img src="https://img.shields.io/badge/esbuild-0.20+-58A448.svg?style=for-the-badge&logoColor=white" alt="esbuild"></a>
+  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-22.18+-58A448.svg?logo=nodedotjs&logoColor=white&style=for-the-badge" alt="Node.js Version"></a>
+  <a href="https://www.fastify.io/"><img src="https://img.shields.io/badge/Fastify-5.4+-58A448.svg?logo=fastify&logoColor=white&style=for-the-badge" alt="Fastify Version"></a>
+  <a href="https://esbuild.github.io/"><img src="https://img.shields.io/badge/esbuild-0.25+-58A448.svg?style=for-the-badge&logoColor=white" alt="esbuild"></a>
   <a href="https://pnpm.io/"><img src="https://img.shields.io/badge/pnpm-8+-58A448.svg?logo=pnpm&logoColor=white&style=for-the-badge" alt="pnpm"></a>
 </p>
 
 <p align="center">
-  <a href="https://sqlite.org/"><img src="https://img.shields.io/badge/SQLite-3.0+-58A448.svg?logo=sqlite&logoColor=white&style=for-the-badge" alt="SQLite"></a>
-  <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-9.0+-58A448.svg?logo=eslint&logoColor=white&style=for-the-badge" alt="ESLint"></a>
+  <a href="https://vinejs.dev/"><img src="https://img.shields.io/badge/VineJS-3.0+-58A448.svg?style=for-the-badge&logoColor=white" alt="VineJS"></a>
+  <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-9.32+-58A448.svg?logo=eslint&logoColor=white&style=for-the-badge" alt="ESLint"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-58A448.svg?style=for-the-badge&logoColor=white" alt="MIT License"></a>
   <img src="https://img.shields.io/badge/14KB-Budget_Enforced-58A448.svg?style=for-the-badge&logoColor=white" alt="14KB Budget">
 </p>
@@ -88,17 +89,19 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 
 - **14KB budget enforcement** with automated size checking for optimal TCP slow start performance
 - **Zero framework overhead** with pure vanilla JavaScript and modern web standards
-- **High-performance backend** built with Fastify for maximum throughput and efficiency
-- **Embedded SQLite database** with better-sqlite3 for fast, serverless data storage
-- **Modern build pipeline** with esbuild for lightning-fast bundling and optimization
+- **High-performance backend** built with Fastify 5 for maximum throughput and efficiency
+- **Advanced validation** with VineJS 3.0 for type-safe data validation
+- **Modern build pipeline** with esbuild 0.25+ for lightning-fast bundling and optimization
+- **Enhanced security** with comprehensive security headers and input validation
 
 ### Developer Experience
 
 - **Monorepo architecture** with pnpm workspaces for efficient dependency management
-- **Code quality tools** with ESLint and Prettier for consistent, maintainable code
+- **Code quality tools** with ESLint 9.32+ and Prettier for consistent, maintainable code
 - **Performance budget checking** with automated 14KB gzipped size validation
 - **Hot reload development** with file watching and instant browser updates
 - **Production deployment** ready with optimized builds and performance monitoring
+- **Modern JavaScript** targeting ES2022 with Node.js 22.18+ LTS support
 
 ### Modern Web Standards
 
@@ -119,9 +122,12 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 14kb-web/
 ├── apps/
 │   ├── blog/               # 14KB Blog - Performance philosophy
+│   ├── tasks/              # Tasks App - Task scheduler and notes
 │   └── weather/            # Weather App - OpenWeatherMap integration
+├── build/                  # Production-ready optimized builds
 ├── packages/               # Shared utilities (future expansion)
 ├── scripts/                # Build tools and performance checks
+│   ├── build-all.js       # Generate optimized builds
 │   └── check-size.js      # 14KB budget enforcement
 └── docs/                   # Documentation and guides
 ```
@@ -146,7 +152,7 @@ Featuring optimized performance, beautiful UIs, and zero framework dependencies
 
 ## Quick Start
 
-**Prerequisites:** Node.js 18+ and pnpm 8+ installed
+**Prerequisites:** Node.js 22.18+ and pnpm 8+ installed
 
 ```bash
 # Clone repository and navigate
@@ -255,11 +261,11 @@ Internet → CDN/Proxy (gzip/brotli) → Static Files (≤14KB)
 <table align="center">
 <tr>
 <td align="center">
-<img src="https://img.shields.io/badge/Runtime-Node.js_18-58A448?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"><br>
+<img src="https://img.shields.io/badge/Runtime-Node.js_22-58A448?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"><br>
 <sub>JavaScript runtime for backend services</sub>
 </td>
 <td align="center">
-<img src="https://img.shields.io/badge/Framework-Fastify_4-58A448?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify"><br>
+<img src="https://img.shields.io/badge/Framework-Fastify_5-58A448?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify"><br>
 <sub>High-performance web framework</sub>
 </td>
 <td align="center">
@@ -316,7 +322,7 @@ Our blog explores the philosophy and techniques behind 14KB web development:
 
 ## Applications
 
-### 📝 14KB Blog
+### 14KB Blog
 
 A minimalist blog focused on ultra-lightweight web development philosophy.
 
@@ -328,7 +334,7 @@ A minimalist blog focused on ultra-lightweight web development philosophy.
 - Semantic HTML structure for accessibility
 - Progressive enhancement with minimal JavaScript
 
-### 🌤️ Weather App
+### Weather App
 
 A fully-featured weather application using the OpenWeatherMap API, all under 14KB.
 
@@ -341,6 +347,37 @@ A fully-featured weather application using the OpenWeatherMap API, all under 14K
 - Error handling and loading states
 - Responsive design for all devices
 - Local caching for performance
+
+### Tasks App
+
+A comprehensive task scheduler, reminders, and notes application with full CRUD functionality, all under 14KB.
+
+**Features:**
+
+- Create, edit, and delete tasks with titles and notes
+- Priority levels (Low, Medium, High) with visual indicators
+- Due date scheduling with overdue detection
+- Task completion tracking with visual feedback
+- Filter by status (All, Pending, Completed, Overdue)
+- Sort by creation date, due date, priority, or title
+- Dark/light mode with system preference detection
+- SQLite database for reliable data persistence
+- Responsive design optimized for all devices
+- Real-time task status updates
+
+## Production Builds
+
+**[Optimized Production Builds](build/)**
+
+Pre-built, production-ready applications are available in the `build/` directory. Each application is:
+
+- **Single-file deployment** - HTML with inlined CSS and JavaScript
+- **Multiple compression formats** - Gzip and Brotli pre-compressed versions
+- **CDN ready** - Optimized for content delivery networks
+- **Zero dependencies** - Self-contained applications
+- **Performance verified** - All under 14KB gzipped
+
+See [build/README.md](build/README.md) for deployment instructions and performance metrics.
 
 ## Performance Metrics
 

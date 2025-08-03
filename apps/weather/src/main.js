@@ -39,8 +39,14 @@ class WeatherApp {
 
   bindEvents() {
     this.elements.form.addEventListener('submit', this.handleSubmit.bind(this));
-    this.elements.themeToggle.addEventListener('click', this.toggleTheme.bind(this));
-    this.elements.retryButton.addEventListener('click', this.handleRetry.bind(this));
+    this.elements.themeToggle.addEventListener(
+      'click',
+      this.toggleTheme.bind(this)
+    );
+    this.elements.retryButton.addEventListener(
+      'click',
+      this.handleRetry.bind(this)
+    );
 
     // Auto-format ZIP code input
     this.elements.zipInput.addEventListener('input', (e) => {
@@ -51,7 +57,7 @@ class WeatherApp {
   async handleSubmit(e) {
     e.preventDefault();
     const zipcode = this.elements.zipInput.value.trim();
-    
+
     if (!/^\d{5}$/.test(zipcode)) {
       this.showError('Please enter a valid 5-digit ZIP code');
       return;
@@ -69,9 +75,16 @@ class WeatherApp {
 
   async fetchWeather(zipcode) {
     this.showLoading();
-    
+
     try {
-      const response = await fetch(`/api/weather?zip=${zipcode}`);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout for UI
+
+      const response = await fetch(`/api/weather?zip=${zipcode}`, {
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
       const data = await response.json();
 
       if (!response.ok) {
@@ -81,7 +94,13 @@ class WeatherApp {
       this.displayWeather(data);
       this.saveToStorage(zipcode, data);
     } catch (error) {
-      this.showError(error.message);
+      if (error.name === 'AbortError') {
+        this.showError(
+          'Request timed out. Please check your connection and try again.'
+        );
+      } else {
+        this.showError(error.message);
+      }
     }
   }
 
@@ -89,7 +108,7 @@ class WeatherApp {
     const {
       name,
       main: { temp, feels_like, temp_min, temp_max, humidity, pressure },
-      weather: [{ main, description, icon }],
+      weather: [{ description, icon }],
       wind: { speed, deg = 0 },
       visibility,
       sys: { sunrise, sunset },
@@ -97,7 +116,7 @@ class WeatherApp {
 
     // Update weather elements
     this.weatherElements.locationName.textContent = name;
-    this.weatherElements.weatherEmoji.textContent = this.getWeatherEmoji(icon);
+    this.weatherElements.weatherEmoji.textContent = this.getWeatherIcon(icon);
     this.weatherElements.tempCurrent.textContent = `${Math.round(temp)}°F`;
     this.weatherElements.tempHigh.textContent = `${Math.round(temp_max)}°F`;
     this.weatherElements.tempLow.textContent = `${Math.round(temp_min)}°F`;
@@ -113,19 +132,49 @@ class WeatherApp {
     this.showWeather();
   }
 
-  getWeatherEmoji(iconCode) {
-    const emojiMap = {
-      '01d': '☀️', '01n': '🌙', '02d': '⛅', '02n': '☁️',
-      '03d': '☁️', '03n': '☁️', '04d': '☁️', '04n': '☁️',
-      '09d': '🌧️', '09n': '🌧️', '10d': '🌦️', '10n': '🌧️',
-      '11d': '⛈️', '11n': '⛈️', '13d': '❄️', '13n': '❄️',
-      '50d': '🌫️', '50n': '🌫️'
+  getWeatherIcon(iconCode) {
+    const iconMap = {
+      '01d': 'Clear',
+      '01n': 'Clear Night',
+      '02d': 'Partly Cloudy',
+      '02n': 'Cloudy Night',
+      '03d': 'Cloudy',
+      '03n': 'Cloudy',
+      '04d': 'Overcast',
+      '04n': 'Overcast',
+      '09d': 'Rain',
+      '09n': 'Rain',
+      '10d': 'Light Rain',
+      '10n': 'Rain',
+      '11d': 'Thunderstorm',
+      '11n': 'Thunderstorm',
+      '13d': 'Snow',
+      '13n': 'Snow',
+      '50d': 'Fog',
+      '50n': 'Fog',
     };
-    return emojiMap[iconCode] || '🌤️';
+    return iconMap[iconCode] || 'Partly Cloudy';
   }
 
   getWindDirection(degrees) {
-    const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+    const directions = [
+      'N',
+      'NNE',
+      'NE',
+      'ENE',
+      'E',
+      'ESE',
+      'SE',
+      'SSE',
+      'S',
+      'SSW',
+      'SW',
+      'WSW',
+      'W',
+      'WNW',
+      'NW',
+      'NNW',
+    ];
     return directions[Math.round(degrees / 22.5) % 16];
   }
 
@@ -133,7 +182,7 @@ class WeatherApp {
     return new Date(timestamp * 1000).toLocaleTimeString('en-US', {
       hour: 'numeric',
       minute: '2-digit',
-      hour12: true
+      hour12: true,
     });
   }
 
@@ -162,30 +211,34 @@ class WeatherApp {
   // Theme management
   initTheme() {
     const savedTheme = localStorage.getItem('weather-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+
     if (savedTheme) {
       document.documentElement.setAttribute('data-theme', savedTheme);
     } else if (prefersDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
-    
+
     this.updateThemeToggle();
   }
 
   toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('weather-theme', newTheme);
     this.updateThemeToggle();
   }
 
   updateThemeToggle() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    this.elements.themeToggle.textContent = isDark ? '☀️' : '🌙';
-    this.elements.themeToggle.setAttribute('aria-label', 
+    const isDark =
+      document.documentElement.getAttribute('data-theme') === 'dark';
+    this.elements.themeToggle.textContent = isDark ? 'Light' : 'Dark';
+    this.elements.themeToggle.setAttribute(
+      'aria-label',
       isDark ? 'Switch to light mode' : 'Switch to dark mode'
     );
   }
@@ -195,7 +248,7 @@ class WeatherApp {
     const cacheData = {
       zipcode,
       data,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     };
     localStorage.setItem('weather-cache', JSON.stringify(cacheData));
   }
@@ -206,13 +259,13 @@ class WeatherApp {
       if (!cached) return;
 
       const { zipcode, data, timestamp } = JSON.parse(cached);
-      
+
       // Use cached data if less than 10 minutes old
       if (Date.now() - timestamp < 10 * 60 * 1000) {
         this.elements.zipInput.value = zipcode;
         this.displayWeather(data);
       }
-    } catch (error) {
+    } catch {
       // Ignore cache errors
     }
   }
