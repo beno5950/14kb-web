@@ -1,0 +1,33 @@
+{
+  "name": "14kb-web",
+  "version": "1.0.0",
+  "description": "A central hub for ultra-lightweight websites and web apps under 14KB per page",
+  "author": "dunamismax <dunamismax@tutamail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r run dev",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "format": "pnpm -r run format",
+    "check-size": "node scripts/check-size.js",
+    "clean": "pnpm -r run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^9.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.0",
+    "gzip-size": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

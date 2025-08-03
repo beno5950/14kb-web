@@ -1,0 +1,21 @@
+{
+  "name": "@14kb-web/blog",
+  "version": "1.0.0",
+  "description": "Ultra-lightweight blog about 14KB web development philosophy",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node build.js",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/**/*.js server.js build.js",
+    "format": "prettier --write src/**/*.js server.js build.js *.html"
+  },
+  "dependencies": {
+    "fastify": "^4.26.0",
+    "better-sqlite3": "^9.4.0",
+    "@vinejs/vine": "^1.7.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}
